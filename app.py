@@ -101,14 +101,6 @@ def event():
 @app.route('/thanks', methods= ['GET', 'POST'])
 def thanks():
     return render_template('thanks.html')
-#    if username == 'admin':
- #       login_session['admin'] = True
-  #      return redirect(url_for('admin')) 
-   # if request.method == 'POST':
-    #     events[event].append(login_session['user']['email'])
-    #     db.child("events").push(events)
-    #     return render_template("thanks.html")
-    # return render_template("event.html")
 
 
 #app route - admin

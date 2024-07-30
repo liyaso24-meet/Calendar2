@@ -16,13 +16,18 @@ header {
 }
 
 nav ul li.logo {
-    flex-grow: 1;
     display: flex;
-    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+/*    flex-grow: 1;
+    display: flex;
+    justify-content: center;*/
 }
 
 nav ul li.logo img {
-    height: 150px;
+    height: 180px;
 }
 
 nav ul {
@@ -142,6 +147,13 @@ footer {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
 }
 
 .button12 {
@@ -178,7 +190,7 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  -ms-transform: translate(-50%, -50%);
+/*  -ms-transform: translate(-50%, -50%);*/
   transform: translate(-50%, -50%);
 }
 footer {

@@ -197,6 +197,7 @@ footer {
 }
 
 .center {
+  font: Roboto Slab;
   margin: 0;
   position: absolute;
   top: 50%;

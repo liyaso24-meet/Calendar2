@@ -44,6 +44,16 @@ h3 {
   margin-bottom: 10px;
 }
 
+.container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40vh; /* Full viewport height */
+            padding: 20px;
+            left: -20px;
+ }
+
+
 button {
   background-color: #FFD700; /* Yellow */
   border: none;
@@ -54,6 +64,7 @@ button {
   display: inline-block;
   font-size: 16px;
   padding: 24px 50px;
+  text-align: center;
 }
 
 button:hover {
@@ -104,23 +115,27 @@ footer {
 }
 .button12{
 	position:absolute;
-	
+	left: 450px;
+	}
 
 </style>
 </head>
 <body>
+	
 	<center>
 
 
 	<img src="{{ url_for('static', filename='logo-2023.png') }}" class="my_img">
+	
 	<h3 class="my_text">Thank you for attending for the event</h3>
 	<br><br>
-	<div class = "button12"
+	<div class="container">
+	<div class = "button12">
 
-	 	<a href="/signout"><button>signout</button></a>
-		<a href="/event"><button class="button12">event</button></a>
+	 	<a href="/signout"><button clas>signout</button></a>
+		<a href="/event"><button>event</button></a>
 		</div>
-		
+   </div>
 	<footer>
 	<p>&copy; 2024 MEET D1 & Younited School. All rights reserved.</p>
 </center>

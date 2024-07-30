@@ -84,13 +84,15 @@ def event():
         event_names= ["CAS_fair", "culture_carnival", "democracy_day", "environment_day", "dp2_exhibit", "dp2_auction", "dp1_auction", "Graduation", "peace_fest"]
         for i in event_names:
             if i in request.form:
-                db.child("users").child(i).push(email)
+                UID = login_session['user']['localId']
+                Useremail = db.child("users").child(UID).child("email").get().val()
+                db.child("users").child(i).push(Useremail)
                 return redirect(url_for('thanks'))
 
 
 #app route - thanks
 @app.route('/thanks', methods= ['GET', 'POST'])
-def thanks(event):
+def thanks():
     return render_template('thanks.html')
 #    if username == 'admin':
  #       login_session['admin'] = True

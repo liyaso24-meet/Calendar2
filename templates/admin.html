@@ -1,19 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Admin console</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Console</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesAdmin.css') }}">
 </head>
+    <header>
+        <img src="{{ url_for('static', filename='youlogo.png') }}" alt="Younited School Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a  href="/"><button>Sign out</button></a></li>
+            </ul>
+        </nav>
+    </header>
 <body>
-	<h1>Confirmed attendance</h1>
-	{%for name, events in event_email.items()%}
-	{{name}}
-	{{events.values() | list | first}}
-	<br>
-	{%endfor%}
-	<a href="/event"><button>check events</button></a>
+	<h1 >Confirmed attendance</h1>
+	<div style="font-size: 30px; text-align: center; color: #192848;">
+		{%for name, events in event_email.items()%}
+		{{name}} =>  
+		{{events.values() | list | first}}
+		<br>
+		{%endfor%}
+	</div>
+	<a href="/event" class="center-button"><button>Check Events</button></a>
 
 
+<footer>
+	<p>&copy; 2024 MEET D1 & Younited School. All rights reserved.</p>
+</footer>
 </body>
 </html>

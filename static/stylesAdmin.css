@@ -5,6 +5,22 @@ body {
     padding: 0;
 }
 
+.center-button {
+  font: Roboto Slab;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+/*  -ms-transform: translate(-50%, -50%);*/
+  transform: translate(-50%, -50%);
+}
+
+.center-button button {
+  padding: 20px 40px;
+  font-size: 18px;
+  margin-top: 2cm;
+}
+
 header {
     background-color: #192848;
     color: #fff;
@@ -52,7 +68,6 @@ h1 {
     font-size: 55px;
 }
 
-
 .events-container {
     display: flex;
     flex-wrap: wrap;
@@ -70,7 +85,7 @@ h1 {
 }
 
 .event-box h2 {
-    color: #192848;
+    color: #333;
     margin-bottom: 10px;
 }
 
@@ -91,11 +106,10 @@ button {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    margin-bottom: 20px;
 }
 
 button:hover {
-    background-color: #FFD700;
+    background-color: #0056b3;
 }
 
 footer {

@@ -11,7 +11,7 @@
         <img src="{{ url_for('static', filename='youlogo.png') }}" alt="Younited School Logo" class="logo">
         <nav>
             <ul>
-                <li><a  href="/"><button>Sign out</button></a></li>
+                <li><a  href="/"><button style="margin-top: 10px;">Sign out</button></a></li>
             </ul>
         </nav>
     </header>
@@ -76,6 +76,8 @@
             </div>
             <div class="event-box">
                 <h2>DP2 Graduation <br> When: May</h2>
+                <br>
+                <br>
                 <form action= "/event" method="POST">
                     <button type="submit" name="Graduation">Attend</button>
                 </form>

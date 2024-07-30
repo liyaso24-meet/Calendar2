@@ -38,15 +38,19 @@ def login():
     if request.method == 'GET':
         return render_template("login.html") 
     else: 
+        print("post")
         email = request.form['email']
         password = request.form['password']
-
+        print(email)
+        print(password)
         try:
-            if username == 'admin':
-                login_session['admin'] = True
-                return redirect(url_for('admin'))           
             login_session['user'] = auth.sign_in_with_email_and_password(email, password)
-            return redirect(url_for('event'))
+            if email == 'admin@gmail.com':
+                login_session['admin'] = True
+                print(email)
+                return redirect(url_for('admin'))           
+            else:
+                return redirect(url_for('event'))
 
         except Exception as e:
             error = "login failed, try again."
@@ -64,10 +68,13 @@ def signup():
         password = request.form['password']
 
         try:
-            login_session['user'] = auth.create_user_with_email_and_password(email, password)
+            login_session['user'] = auth.create_user_with_email_and_password(email, password)    
             UID = login_session['user']['localId']
             user = {"email": email, "password": password}
             db.child("users").child(UID).set(user)
+            if email == 'admin@gmail.com':
+                login_session['admin'] = True
+                return redirect(url_for('admin'))
             return redirect(url_for('event'))
         except Exception as e:
             error = "Authentication error"
@@ -86,7 +93,7 @@ def event():
             if i in request.form:
                 UID = login_session['user']['localId']
                 Useremail = db.child("users").child(UID).child("email").get().val()
-                db.child("users").child(i).push(Useremail)
+                db.child("events").child(i).push(Useremail)
                 return redirect(url_for('thanks'))
 
 
@@ -94,22 +101,14 @@ def event():
 @app.route('/thanks', methods= ['GET', 'POST'])
 def thanks():
     return render_template('thanks.html')
-#    if username == 'admin':
- #       login_session['admin'] = True
-  #      return redirect(url_for('admin')) 
-   # if request.method == 'POST':
-    #     events[event].append(login_session['user']['email'])
-    #     db.child("events").push(events)
-    #     return render_template("thanks.html")
-    # return render_template("event.html")
 
 
 #app route - admin
 @app.route('/admin', methods= ['GET', 'POST'])
 def admin():
     if request.method == 'GET':
-
-        return render_template("admin.html" , events=events)
+        event_email = db.child("events").get().val()
+        return render_template("admin.html", event_email=event_email)
 
 
 #app route - signout

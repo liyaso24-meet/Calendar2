@@ -25,10 +25,6 @@ firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 db = firebase.database()
 
-events = {
-    "CAS": []
-}
-
 
 #app route main
 @app.route('/', methods=['GET', 'POST'])
@@ -84,22 +80,26 @@ def signup():
 def event():
     if request.method == 'GET':
         return render_template("event.html") 
-    else: 
-        UID = login_session['user']['localId']
-        return redirect(url_for('thanks'))
+    else:
+        event_names= ["CAS_fair", "culture_carnival", "democracy_day", "environment_day", "dp2_exhibit", "dp2_auction", "dp1_auction", "Graduation", "peace_fest"]
+        for i in event_names:
+            if i in request.form():
+                db.child("users").child(i).push(email)
+                return redirect(url_for('thanks'))
 
 
 #app route - thanks
-@app.route('/thanks<event>', methods= ['GET', 'POST'])
+@app.route('/thanks', methods= ['GET', 'POST'])
 def thanks(event):
-    if username == 'admin':
-        login_session['admin'] = True
-        return redirect(url_for('admin')) 
-    if request.method == 'POST':
-        events[event].append(login_session['user']['email'])
-        db.child("events").push(events)
-        return render_template("thanks.html")
-    return render_template("event.html")
+    return render_template('thanks.html')
+#    if username == 'admin':
+ #       login_session['admin'] = True
+  #      return redirect(url_for('admin')) 
+   # if request.method == 'POST':
+    #     events[event].append(login_session['user']['email'])
+    #     db.child("events").push(events)
+    #     return render_template("thanks.html")
+    # return render_template("event.html")
 
 
 #app route - admin

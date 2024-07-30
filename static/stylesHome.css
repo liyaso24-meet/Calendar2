@@ -3,6 +3,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+
 }
 
 header {
@@ -130,7 +131,13 @@ footer {
     width: 100%;
 }
 
+.back{
 
+    background-image: url('younited.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 .button12 {
   background-color: #FFD700; /* Yellow */

@@ -3,13 +3,32 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>home</title>
+	    <link rel="stylesheet" href="{{ url_for('static', filename='stylesHome.css') }}">
 </head>
 
 <style></style>
 <body>
-	<a href="/login"><button id="login">login</button></a>
-	<a href="/signup"><button id="signup">signup</button></a>
 
+	<header>
+	 <img src="{{ url_for('static', filename='youlogo.png') }}" alt="Younited School Logo" class="logo">
+	</header>
+
+<div class="back">
+<div class="container">
+  <div class="center">
+	<img src="{{ url_for('static', filename='logo-2023.png') }}">
+</div>
+</div>
+<div class="container">
+  <div class="center">
+	<a href="/login"><button class="button12">login</button></a>
+	<a href="/signup"><button class="button12">signup</button></a>
+	</div>
+</div>
+</div>
+ <footer>
+        <p>&copy; 2024 MEET D1 & Younited School. All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -15,9 +15,14 @@ header {
     align-items: center;
 }
 
-.logo {
-    height: 50px;
-    margin-left: 20px;
+nav ul li.logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li.logo img {
+    height: 150px;
 }
 
 nav ul {

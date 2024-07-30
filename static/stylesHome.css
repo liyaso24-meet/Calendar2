@@ -6,6 +6,13 @@ body {
 
 }
 
+.top-middle-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 header {
     background-color: #192848;
     color: #fff;
@@ -15,15 +22,17 @@ header {
     align-items: center;
 }
 
-nav ul li.logo {
-    display: flex;
+/*nav ul li.logo {
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
 
-/*    flex-grow: 1;
-    display: flex;
-    justify-content: center;*/
+
+}*/
+
+.nav {
+  height: 180px; /* Replace with your desired height */
 }
 
 nav ul li.logo img {
@@ -143,7 +152,7 @@ footer {
 
 .back{
 
-    background-image: url('younited.png');
+    background-image: url('admissions.jpeg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -160,12 +169,14 @@ footer {
   background-color: #FFD700; /* Yellow */
   border: none;
   color: black;
-  padding: 15px 32px;
+  padding: 30px 50px;
   text-align: center;
   text-decoration: none;
+  margin-top: 500px;
+  margin-left: 20px;
   display: inline-block;
-  font-size: 16px;
-  padding: 24px 50px;
+  font-size: 30px;
+/*  padding: 24px 50px;*/
 }
 
 .button12 {
@@ -186,6 +197,7 @@ footer {
 }
 
 .center {
+  font: Roboto Slab;
   margin: 0;
   position: absolute;
   top: 50%;

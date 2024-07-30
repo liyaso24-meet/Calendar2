@@ -7,9 +7,10 @@
 </head>
 <body>
 	<h1>Confirmed attendance</h1>
-	{%for event in events%}
-	event name: {{event}}
-	guests: {{events[event]}}
+	{%for name, events in event_email.items()%}
+	{{name}}
+	{{events.values() | list | first}}
+	<br>
 	{%endfor%}
 	<a href="/event"><button>check events</button></a>
 
